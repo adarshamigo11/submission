@@ -1,0 +1,65 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+// Calculates difference of each  
+// track number with the head position 
+
+void calculatedifference(int request[], int head,
+
+                         int diff[][2], int n)
+{
+
+    for(int i = 0; i < n; i++)
+
+    {
+
+        diff[i][0] = abs(head - request[i]);
+
+    }
+}
+
+// Find unaccessed track which is 
+// at minimum distance from head 
+
+int findMIN(int diff[][2], int n)
+{
+
+    int index = -1;
+
+    int minimum = 1e9;
+
+
+
+    for(int i = 0; i < n; i++)
+
+    {
+
+        if (!diff[i][1] && minimum > diff[i][0])
+
+        {
+
+            minimum = diff[i][0];
+
+            index = i;
+
+        }
+
+    }
+
+    return index;
+}
+
+
+void shortestSeekTimeFirst(int request[], 
+
+                           int head, int n)
+{
+
+    if (n == 0)
+
+    {
+
+        return;
+
+    }
